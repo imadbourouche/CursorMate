@@ -9,9 +9,6 @@
     "clipboardWrite",
     "storage"
   ],
-  "host_permissions": [
-    "https://cursormate-proxy.ji-bourouche.workers.dev/"
-  ],
   "background": {
     "service_worker": "src/background/background.js",
     "type": "module"
