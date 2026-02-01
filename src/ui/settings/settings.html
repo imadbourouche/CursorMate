@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CursorMate Settings</title>
+    <link rel="stylesheet" href="../../../assets/styles/settings.css">
+</head>
+
+<body>
+    <div class="header-actions">
+        <h1>CursorMate Actions</h1>
+        <button id="reset-btn" class="btn">Reset to Defaults</button>
+    </div>
+
+    <div class="add-section" style="margin-bottom: 20px; background: #fff; border: 1px solid #eee;">
+        <h3 style="margin-top:0; margin-bottom:15px;">Extension behavior when selecting text</h3>
+        <div class="form-group">
+            <label style="font-weight: normal; margin-bottom: 8px;">
+                <input type="radio" name="behavior" value="icon" checked> Show floating icon (Default)
+            </label>
+            <label style="font-weight: normal; margin-bottom: 8px;">
+                <input type="radio" name="behavior" value="immediate"> Show popup immediately
+            </label>
+            <label style="font-weight: normal;">
+                <input type="radio" name="behavior" value="manual"> Manual trigger only (Click extension icon in the
+                extensions bar)
+            </label>
+        </div>
+    </div>
+
+    <details>
+        <summary>Model Configuration</summary>
+        <div class="details-content">
+            <h4 style="margin-top:0; margin-bottom:15px;">Configure your model</h4>
+            <div class="form-group">
+                <label>Model Name</label>
+                <input type="text" id="model-name" placeholder="e.g. deepseek-chat">
+            </div>
+            <div class="form-group">
+                <label>API URL</label>
+                <input type="text" id="model-url" placeholder="https://api.example.com/v1/chat/completions">
+            </div>
+            <div class="form-group">
+                <label>API Key</label>
+                <input type="password" id="model-key" placeholder="sk-...">
+            </div>
+            <button id="save-model-btn" class="btn btn-primary">Save Model Settings</button>
+            <button id="reset-model-btn" class="btn">Reset to Default</button>
+        </div>
+    </details>
+
+    <details>
+        <summary>Prompts Configuration</summary>
+        <div class="details-content">
+            <div>
+                <h3 style="margin-top:0; margin-bottom:15px;">System Prompt</h3>
+                <div class="form-group">
+                    <label>Default System Prompt (Global)</label>
+                    <textarea id="system-prompt" style="height: 80px;"
+                        placeholder="You are a helpful assistant..."></textarea>
+                    <button id="save-system-prompt-btn" class="btn btn-primary" style="margin-top: 10px;">Save System
+                        Prompt</button>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            <h3 style="margin-top:0; margin-bottom:15px;">Actions</h3>
+            <div id="action-list" class="action-list">
+                <!-- Actions will be loaded here -->
+            </div>
+
+            <div class="add-section" style="border: none; padding: 0; background: none;">
+                <h3 style="margin-top:0; margin-bottom:15px;">Add New Action</h3>
+                <div class="form-group">
+                    <label>Name (e.g. Translate)</label>
+                    <input type="text" id="new-name" placeholder="Action Name">
+                </div>
+                <div class="form-group">
+                    <label>Emoji</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="text" id="new-emoji" placeholder="" style="width: 60px;">
+                        <button id="pick-emoji-btn" class="btn">Pick</button>
+                    </div>
+                    <!-- Emoji Picker Container -->
+                    <div id="emoji-picker"
+                        style="display: none; margin-top: 10px; border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: white;">
+                        <input type="text" id="emoji-search" placeholder="Search emojis..."
+                            style="margin-bottom: 10px;">
+                        <div id="emoji-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 5px; max-height: 150px; overflow-y: auto;">
+                            <!-- Emojis injected here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Prompt (Use {text} as placeholder for selected text)</label>
+                    <textarea id="new-prompt" placeholder="e.g. Translate this to Spanish: {text}"></textarea>
+                </div>
+                <button id="add-btn" class="btn btn-primary">Add Action</button>
+            </div>
+        </div>
+    </details>
+
+    <script type="module" src="settings.js"></script>
+</body>
+
+</html>

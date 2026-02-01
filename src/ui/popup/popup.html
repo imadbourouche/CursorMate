@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../../assets/styles/content.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 320px;
+        }
+
+        /* Override absolute positioning for browser action */
+        .text-selection-popup {
+            position: static !important;
+            box-shadow: none !important;
+            border: none !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-height: none !important;
+            resize: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-container" class="text-selection-popup">
+        <!-- ui.html will be injected here -->
+    </div>
+    <script src="../../../assets/libs/marked.min.js"></script>
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>

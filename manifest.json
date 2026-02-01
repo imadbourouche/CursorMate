@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "CursorMate",
+  "version": "1.0",
+  "description": "Show AI options when selecting text",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "clipboardWrite",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://cursormate-proxy.ji-bourouche.workers.dev/"
+  ],
+  "background": {
+    "service_worker": "src/background/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/ui/popup/popup.html"
+  },
+  "options_page": "src/ui/settings/settings.html",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "js": [
+        "assets/libs/marked.min.js",
+        "src/content/content.js"
+      ],
+      "css": [
+        "assets/styles/content.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/icons/*.png",
+        "src/ui/popup/popup.html",
+        "src/ui/main-ui/ui.html",
+        "src/api/model.js",
+        "src/content/components/*.js",
+        "src/utils/constants.js",
+        "src/utils/storage.js",
+        "src/utils/actionHandler.js",
+        "src/utils/config.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "key": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq3eXYUwJ79+QiRXxDQa/ll46OPKEGrR0+KNYIv0FcUplEl3O0Se/kZZE0k7sK7gB61OkoYnioAhSTGh57zeb3IIM6HWvbBqUmL/yC4tt8pvFYKYSlqc5/5oO6Q3EdTHDqgA8haxXu77zO7/iIkcwGDLTx91ZKjUG8K0LGc0NZIks+MkuC1o+lTSv3nxx9GSS4VdFRmjBSLxbbaF7mNlsVp05SQY8B4f2j3rhHU0xGB/NCh1XnqBXqm4DTWrI1/QSq3tV4BedEmXuEM54MIVS/Q3DWqPnEk5Dag1BjUv5ykA2TN0yc/Cz/ijCIJLTKDlA4frKhlaysPbv8OPqRIppzAgMBAAECggEAEPEf7U33GkKkk1oEwwhxf+2B8YwvwovfW+lMUPa3F4fgcZgmHVNoHriMEsSuevF0CQ8xBSjqYheUDFfpJjPEJG8hWTL58vAwPN6Xhi98ktoHZnX2FJUHMtBbnFg75YCjAOVsr/lrEH4jNaOT/DqfRQmf1rlvDBpV0RS7B2v+BV7YevdvYewCvIQ/tJpnX3dCHPW+SpKZWC5fv93o6APqcMcNFM9V3mRacScdsJWZa6a61Bv77n9n6xsiC91gDag2TIF6jvl8PTr6NqLhys2iLSEyYfpVCXj56t/I3/Qs/SjkDYBocgOjjZQ8/1IPVHp0VWebKaDtHnCH2cIsaGQgAQKBgQDUnEhzY2JCV21CIfXHg9HGW/TGlekOHdtm26i4DAQGhJoCOMuq6clFxA54060s+ULYTHzc59gkPVUCkCiISjuYdjSvD+EgS038WF9P4ngOgHxqktHahlmgGWM6qFYKQ5KG76t6YP/IzASQJyFlUZU5X8K47XC0uTFaTcGwN2PgAQKBgQDNvL0cGWlI3VJXum9IhEZeEeaJnvUCV4gRHPX7GLLIJxI6L7qcG/LW2HvL0u+P8Szu/Rmhv5BysNoOmhl1lEKkdEjM95uol1k91DPw9wBR73WKXXjO3s8yC6rOn/ea1yzpHojcsL0G/SuwiRN9VRCSvsMBQHmdGFLvOA36poT6cwKBgQDFvvIX+HjckWo6l1F9FxrWbpLU3XudOKHnIijjvbFEyrJfnKm5tqYQcJCxStgIO3Izsbh00mKTGkRmFOTOFpUlcdQAezl9iuzm5t8HcvENM+4ERbhPkqPrp5FGbmlQNJclT+di9LMS9MbNuMdz8BRl/64hyB4KyTCg+C9NEcegAQKBgBKOXmQlapiW1bFx8E2TGKGtbaSmAKU4bd5VRV5jaOSimYNEAMnJv4pfNjM5EEBkWVAo5eHv3EBr8Q72GSvAto4MqvBJuPFozTTFafXm4VGCjpBvQ9EsyXVTFhHS3ctKcxOHnIKDMllqBkHC604XmQoTSJVZUl637esDnEcqM74/AoGBAJhAQ5G0EnseQ9I9Ct3Cq/HzzvRsxTsE0DO4bk739IKCdVCJwwxbNxw/TXJdy53CV7LU5LFvXSjEXKtnKWFKUUKlq+WNR6xBXwh+3xeh13UxFdeQFEZsJu32S4Tb5/QJcbbZxHUdfXNgR1v3ogTWPyJ1eGjX0vDyPXQoqg8ROgjR"
+}

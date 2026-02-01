@@ -1,0 +1,21 @@
+<div class="popup-header">
+    <span class="popup-title">CursorMate</span>
+    <button class="close-btn">&times;</button>
+</div>
+<div class="popup-content">
+    <div class="selected-text-display"></div>
+    <div class="popup-actions">
+        <!-- Buttons will be injected here dynamically -->
+    </div>
+    <div class="input-group">
+        <textarea id="custom-prompt" placeholder="Use your own prompt..."></textarea>
+    </div>
+    <div id="ai-response-area" style="display: none;">
+        <strong>AI Response:</strong>
+        <p id="stream-output"></p>
+        <div class="response-actions">
+            <button class="action-btn-text" id="btn-copy-response">Copy</button>
+        </div>
+    </div>
+    <a id="off" class="gtx-a" href="settings.html" target="_blank">Extension Settings</a>
+</div>
