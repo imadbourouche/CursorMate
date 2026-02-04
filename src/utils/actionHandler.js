@@ -28,8 +28,4 @@ export function setupCustomInput(inputElement, onEnter) {
 export function focusCustomInput(inputElement) {
     if (!inputElement) return;
     inputElement.placeholder = 'Custom Prompt: ';
-    setTimeout(() => {
-        inputElement.focus();
-        inputElement.setSelectionRange(inputElement.value.length, inputElement.value.length);
-    }, 50);
 }
